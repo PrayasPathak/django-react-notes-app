@@ -11,10 +11,10 @@ const NotePage = () => {
     if (id !== "new") {
       getNote();
     }
-  }, [id]);
+  }, [id, getNote]);
 
   let getNote = async () => {
-    if (id == "new") return;
+    if (id === "new") return;
     let response = await fetch(`/api/notes/${id}/`);
     let data = await response.json();
     setNote(data);
@@ -108,7 +108,7 @@ const NotePage = () => {
           onChange={(e) => setNote({ ...note, title: e.target.value })}
         />
 
-        {id != "new" ? (
+        {id !== "new" ? (
           <button onClick={deleteNote}>Delete</button>
         ) : (
           <button onClick={createNote}>Done</button>
