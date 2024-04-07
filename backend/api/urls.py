@@ -7,5 +7,5 @@ router.register("notes", views.NoteViewSet)
 
 urlpatterns = [
     path("", views.getRoutes, name="routes"),
-    path("notes/", include(router.urls)),
+    path("", include(router.urls)),
 ]
